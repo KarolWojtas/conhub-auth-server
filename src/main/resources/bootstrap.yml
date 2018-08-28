@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active:
+    - dev
+  application:
+    name: conhub-auth-server
+  cloud:
+    config:
+     uri:
+      - http://${CONFIG_SERVER_HOST:localhost}:8888
+server:
+  port: 8764
+management:
+  endpoint:
+    health:
+      enabled: false
