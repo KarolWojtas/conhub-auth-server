@@ -11,7 +11,16 @@ import javax.persistence.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.karol.domain.deserializer.AppUserDetailsDeserializer;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonDeserialize(using=AppUserDetailsDeserializer.class)
 public class AppUserDetails implements UserDetails{
 
 	@Id

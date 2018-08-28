@@ -13,13 +13,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.karol.services.interfaces.AppUserDetailsService;
 @EnableWebSecurity
 @Configuration
 public class AuthorizationSecurityConfiguration extends WebSecurityConfigurerAdapter{
-	private UserDetailsService userDetailsService;
+	private AppUserDetailsService userDetailsService;
 	
 	@Autowired
-	public AuthorizationSecurityConfiguration(UserDetailsService userDetailsService) {
+	public AuthorizationSecurityConfiguration(AppUserDetailsService userDetailsService) {
 		super();
 		this.userDetailsService = userDetailsService;
 	}
