@@ -9,6 +9,6 @@ import com.karol.domain.AppUserDetails;
 
 @FeignClient("conhub-user-service")
 public interface UserServiceProxy {
-	@GetMapping("/users/{username}")
+	@GetMapping("/auth/{username}")
 	AppUserDetails loadUserByUsername(@PathVariable("username") String username);
 }
