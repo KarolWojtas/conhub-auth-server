@@ -2,11 +2,6 @@ package com.karol.domain;
 
 import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -17,16 +12,12 @@ import com.karol.domain.deserializer.AppUserDetailsDeserializer;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonDeserialize(using=AppUserDetailsDeserializer.class)
 public class AppUserDetails implements UserDetails{
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@Column(unique=true)
 	private String username;
 	private String password;
 	private String roles;

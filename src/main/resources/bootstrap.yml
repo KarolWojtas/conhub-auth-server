@@ -1,16 +1,25 @@
+server:
+  port: 8764
 spring:
-  profiles:
-    active:
-    - dev
   application:
     name: conhub-auth-server
   cloud:
     config:
-     uri:
-      - http://${CONFIG_SERVER_HOST:localhost}:8888
-server:
-  port: 8764
-management:
-  endpoint:
-    health:
-      enabled: false
+     discovery:
+        enabled: true
+        service-id: conhub-config-server
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    registryFetchIntervalSeconds: 5
+    should-enforce-registration-at-init: true
+    service-url:
+      defaultZone: http://${EUREKA_SERVER_HOST:localhost}:8761/eureka
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  
+    
+
+
+
