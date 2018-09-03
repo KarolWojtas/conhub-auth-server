@@ -5,9 +5,7 @@ spring:
     name: conhub-auth-server
   cloud:
     config:
-     discovery:
-        enabled: true
-        service-id: conhub-config-server
+     enabled: false
 eureka:
   client:
     enabled: true
